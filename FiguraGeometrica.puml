@@ -1,0 +1,35 @@
+@startuml
+interface FiguraGeometrica {
+    +calcularArea(): double
+    +calcularPerimetro(): double
+    +obtenerNombre(): String
+}
+
+class Circulo {
+    -radio: double
+    +Circulo(radio: double)
+    +calcularArea(): double
+    +calcularPerimetro(): double
+    +obtenerNombre(): String
+}
+
+class Cuadrado {
+    -lado: double
+    +Cuadrado(lado: double)
+    +calcularArea(): double
+    +calcularPerimetro(): double
+    +obtenerNombre(): String
+}
+
+class ManejadorFiguras {
+    +mostrarInformacion(figuras: FiguraGeometrica[]): void
+}
+
+FiguraGeometrica <|-- Circulo
+FiguraGeometrica <|-- Cuadrado
+
+Main --> ManejadorFiguras: Utiliza
+
+Circulo ..> FiguraGeometrica: Implementa
+Cuadrado ..> FiguraGeometrica: Implementa
+@enduml
